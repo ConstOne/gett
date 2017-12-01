@@ -37,7 +37,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
             var arraytext = [];
             var n = 22,
-                m = Math.floor(textsplit.length / n);
+            m = Math.floor(textsplit.length / n);
 
             var g = 0;
             for (var i = 0; i < m; i++) {
@@ -137,14 +137,14 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
             output.innerHTML += '<thead>' + '<tr>' +
 
-                '<th>ID</th>' +
-                '<th>' + db[0][1] + '</th>' +
-                '<th>' + 'Совершенно поездок' + '</th>' +
-                '<th >' + db[0][input_cal] + '</th>' +
-                '<th>' + '"' + db[0][input_cal] + '" умноженный на коэффицент(' + input_number + ') и минус "Получено от клиента"' +
-                '<th>' + 'Получено от клиента' + '</th>' +
-                '<th>' + db[0][20] + '</th>' +
-                '</tr></thead><tbody id="tbody"></tbody>';
+            '<th>ID</th>' +
+            '<th>' + db[0][1] + '</th>' +
+            '<th>' + 'Совершенно поездок' + '</th>' +
+            '<th >' + db[0][input_cal] + '</th>' +
+            '<th>' + '"' + db[0][input_cal] + '" умноженный на коэффицент(' + input_number + ') и минус "Получено от клиента"' +
+            '<th>' + 'Получено от клиента' + '</th>' +
+            '<th>' + db[0][20] + '</th>' +
+            '</tr></thead><tbody id="tbody"></tbody>';
             for (i = 0; i < final_arry.length; i++) {
                 console.log(final_arry[i]);
 
@@ -155,14 +155,14 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
                 document.getElementById("tbody").innerHTML += '<tr>' +
 
 
-                    '<td>' + final_arry[i][0] + '</td>' +
-                    '<td>' + final_arry[i][2] + '</th>' +
-                    '<td>' + final_arry[i][1] + '</td>' +
-                    '<td>' + cache_number.toFixed(2) + '</td>' +
-                    '<td>' + cache_number1.toFixed(2) + '</td>' +
-                    '<td>' + final_arry[i][4].toFixed(2) + '</td>' +
-                    '<td>' + final_arry[i][5].toFixed(2) + '</td>' +
-                    '</tr>';
+                '<td>' + final_arry[i][0] + '</td>' +
+                '<td>' + final_arry[i][2] + '</th>' +
+                '<td>' + final_arry[i][1] + '</td>' +
+                '<td>' + cache_number.toFixed(2) + '</td>' +
+                '<td>' + cache_number1.toFixed(2) + '</td>' +
+                '<td>' + final_arry[i][4].toFixed(2) + '</td>' +
+                '<td>' + final_arry[i][5].toFixed(2) + '</td>' +
+                '</tr>';
 
             }
 
