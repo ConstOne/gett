@@ -1,2 +1,2 @@
 # JavaScript Gett CSV Parser
-https://constone.github.io/gett/
+https://constone.github.io/Gett/
