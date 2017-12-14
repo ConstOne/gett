@@ -88,7 +88,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
             var k = 0;
             var cd = 0;
-            var d = 1;
+            var d = 0;
             var cache_cd = 0;
             var cache_cd4 = 0;
             var cache_cd20 = 0;
