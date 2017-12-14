@@ -26,21 +26,9 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
             var newtext = reg.exec(text);
 
             console.log(newtext);
-<<<<<<< HEAD
 
 
             // var textsplit = newtext.toString().replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
-=======
-            //var str = newtext.toString();
-            // var regn = /[\n\r]/g;
-            //var anstr = str.replace(/[\n\r]/g, ';');
-
-            //var nstr = anstr.replace(/[,]+(?=[\d]+[\d])/g, '');
-
-            //var textsplit = nstr.split(';');
-            
-            var textsplit = newtext.toString().replace(/[\n\r](?=[Москва])/g, '').replace(/[\n\r](?=[109012])/g, '').replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
->>>>>>> 4330a9d73e342e0345b874444d0e8bf33764888e
 
             // var str = newtext.toString();
             // // var regn = /[\n\r]/g;
