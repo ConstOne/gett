@@ -26,30 +26,43 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
             var newtext = reg.exec(text);
 
             console.log(newtext);
-            var str = newtext.toString();
-            // var regn = /[\n\r]/g;
-            var anstr = str.replace(/[\n\r]/g, ';');
-
-            var nstr = anstr.replace(/[,]+(?=[\d]+[\d])/g, '');
-
-            var textsplit = nstr.split(';');
 
 
-            var arraytext = [];
-            var n = 22,
-            m = Math.floor(textsplit.length / n);
+            // var textsplit = newtext.toString().replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
+
+            // var str = newtext.toString();
+            // // var regn = /[\n\r]/g;
+            // var anstr = str.replace(/[\n\r]/g, ';');
+
+            // var nstr = anstr.replace(/[,]+(?=[\d]+[\d])/g, '');
+
+            // var textsplit = nstr.split(';');
+
+
+            var textsplit = newtext.toString().replace(/[\n\r]+[Москва]+[\n\r]/g, ' Москва ').replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
+
+            
+
+
+            var arraytext = []; console.log(textsplit,textsplit.lenght);
+
+
+            var n = 22,m = Math.floor(textsplit.length / n);
+            
+             // m = textsplit.length / n;console.log(m);
 
             var g = 0;
             for (var i = 0; i < m; i++) {
                 arraytext[i] = [];
 
-                for (var j = 0; j < n; j++, g++) {
-                    arraytext[i][j] = textsplit[g];
+                for (var j = 0; j < n; ++j) {
+                    arraytext[i][j] = textsplit[g];g++;
                 }
 
             }
             var y = i - 1;
             console.log("Число заказов : " + y);
+            console.log(arraytext);
 
 
             var db = arraytext; // Сортировка по ID
@@ -86,16 +99,17 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
             var k = 0;
             var cd = 0;
-            var d = 1;
+            var d = 0;
             var cache_cd = 0;
             var cache_cd4 = 0;
             var cache_cd20 = 0;
             var c, c4, c20;
-
+            // console.log(gg);console.log('DB',db);
             for (j = 0; j < gg.length; j++) {
 
 
                 var cache_id = gg[j];
+                
 
                 for (var i = 1; i < db.length; ++i) {
                     if (db[i][20] == null) { db[i][20] = 0; }
@@ -146,7 +160,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
             '<th>' + db[0][20] + '</th>' +
             '</tr></thead><tbody id="tbody"></tbody>';
             for (i = 0; i < final_arry.length; i++) {
-                console.log(final_arry[i]);
+                // console.log(final_arry[i]);
 
                 var cache_number = final_arry[i][3];
 
