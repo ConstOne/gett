@@ -39,9 +39,9 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
             // var textsplit = nstr.split(';');
 
 
-            // var textsplit = newtext.toString().replace(/[\n\r]+[Москва]+[\n\r]/g, ' Москва ').replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
+            var textsplit = newtext.toString().replace(/[\n\r]+[Москва]+[\n\r]/g, ' Москва ').replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
 
-            var textsplit = newtext.toString().replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
+            // var textsplit = newtext.toString().replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
 
             
 
