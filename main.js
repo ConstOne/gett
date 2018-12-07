@@ -48,7 +48,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
             var arraytext = []; 
 
-            console.log(textsplit,textsplit.lenght);
+            console.log(textsplit.lenght);
 
 
             var n = 22,m = Math.floor(textsplit.length / n);
@@ -60,8 +60,15 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
                 arraytext[i] = [];
 
                 for (var j = 0; j < n; ++j) {
-                    arraytext[i][j] = textsplit[g];g++;
+                    arraytext[i][j] = textsplit[g];
+                    g++;
+                    var a = 1;
+                    if(g % n == 0 && textsplit[g] == '' ){
+                        textsplit.splice(g, 1); /////!!!!!!!! LAVANDOS
+                    // console.log(j)
+                    }
                 }
+
 
             }
             var y = i - 1;
@@ -179,7 +186,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
             '<th>' + db[0][10] + '</th>' +
             '</tr></thead><tbody id="tbody"></tbody>';
             for (i = 0; i < final_arry.length; i++) {
-                console.log(final_arry[i]);
+                // console.log(final_arry[i]);
 
                 var cache_number = final_arry[i][3];
 
