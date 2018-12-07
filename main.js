@@ -103,7 +103,8 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
             var cache_cd = 0;
             var cache_cd4 = 0;
             var cache_cd20 = 0;
-            var c, c4, c20;
+            var cache_cd40 = 0;
+            var c, c4, c20, c40;
             // console.log(gg);console.log('DB',db);
             for (j = 0; j < gg.length; j++) {
 
@@ -135,15 +136,20 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
                         c20 = +db[i][20];
                         cache_cd20 = cache_cd20 + c20;
                         final_arry[k][5] = cache_cd20 / 100;
+
+                        c40 = +db[i][10];
+                        cache_cd40 = cache_cd40 + c40;
+                        final_arry[k][6] =  cache_cd40 / 100;
                     }
 
                 }
 
                 cache_cd = 0, cache_cd4 = 0;
-                cache_cd20 = 0;
+                cache_cd20 = 0, cache_cd40 = 0;
                 cd = 0;
                 cd4 = 0;
                 cd20 = 0;
+                c40 = 0;
                 d = 0;
                 k++;
 
@@ -153,29 +159,42 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
             '<th>ID</th>' +
             '<th>' + db[0][1] + '</th>' +
+
+
+            '<th>' + '("' + db[0][8] + '" - "'+ db[0][10] + '" - "' + db[0][20] +  '" ) * "Коэффицент(' + input_number + ')"-"' + db[0][7]+'"+"'+ db[0][10] + '" + "'+ db[0][20]+'"'+
+
+
             '<th>' + 'Совершенно поездок' + '</th>' +
             '<th>' + db[0][input_cal] + '</th>' +
             '<th>' + 'Получено от клиента' + '</th>' +
             '<th>' + '"' + db[0][input_cal] + '" умноженный на коэффицент(' + input_number + ') и минус "Получено от клиента"' +
             '<th>' + db[0][20] + '</th>' +
+            '<th>' + db[0][10] + '</th>' +
             '</tr></thead><tbody id="tbody"></tbody>';
             for (i = 0; i < final_arry.length; i++) {
-                // console.log(final_arry[i]);
+                console.log(final_arry[i]);
 
                 var cache_number = final_arry[i][3];
 
                 var cache_number1 = final_arry[i][3] * input_number - final_arry[i][4];
+
+
+                var third_col =  (final_arry[i][3] - final_arry[i][6] - final_arry[i][5]) * input_number - final_arry[i][4] + final_arry[i][6] + final_arry[i][5];
 
                 document.getElementById("tbody").innerHTML += '<tr>' +
 
 
                 '<td>' + final_arry[i][0] + '</td>' +
                 '<td>' + final_arry[i][2] + '</th>' +
+
+                '<td>' + third_col.toFixed(2) + '</th>' +
+
                 '<td>' + final_arry[i][1] + '</td>' +
                 '<td>' + cache_number.toFixed(2) + '</td>' +
                 '<td>' + final_arry[i][4].toFixed(2) + '</td>' +
                 '<td>' + cache_number1.toFixed(2) + '</td>' +
                 '<td>' + final_arry[i][5].toFixed(2) + '</td>' +
+                '<td>' + final_arry[i][6].toFixed(2) + '</td>' +
                 '</tr>';
 
             }
