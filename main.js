@@ -39,16 +39,20 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
             // var textsplit = nstr.split(';');
 
 
-            var textsplit = newtext.toString().replace(/[\n\r]+[Москва]+[\n\r]/g, ' Москва ').replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
+            // var textsplit = newtext.toString().replace(/[\n\r]+[Москва]+[\n\r]/g, ' Москва ').replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
+
+            var textsplit = newtext.toString().replace(/[\n\r]/g, ';').replace(/[,]+(?=[\d]+[\d])/g, '').split(';');
 
             
 
 
-            var arraytext = []; console.log(textsplit,textsplit.lenght);
+            var arraytext = []; 
+
+            console.log(textsplit,textsplit.lenght);
 
 
             var n = 22,m = Math.floor(textsplit.length / n);
-            
+            console.log(m)
              // m = textsplit.length / n;console.log(m);
 
             var g = 0;
@@ -113,7 +117,10 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
                 
 
                 for (var i = 1; i < db.length; ++i) {
-                    if (db[i][20] == null) { db[i][20] = 0; }
+                    if (db[i][20] == null) { db[i][20] = 0;
+                     }
+                    if (db[i][10] == null) { db[i][10] = 0;
+                     }
 
                 }
 
