@@ -62,7 +62,6 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
                 for (var j = 0; j < n; ++j) {
                     arraytext[i][j] = textsplit[g];
                     g++;
-                    var a = 1;
                     if(g % n == 0 && textsplit[g] == '' ){
                         textsplit.splice(g, 1); /////!!!!!!!! LAVANDOS
                     // console.log(j)
