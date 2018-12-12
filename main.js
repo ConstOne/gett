@@ -168,7 +168,7 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
             }
 
-            // output.innerHTML += '<thead>' + '<tr>' +
+
 
             // '<th>ID</th>' +
             // '<th>' + db[0][1] + '</th>' +
