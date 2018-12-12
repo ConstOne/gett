@@ -168,22 +168,24 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
             }
 
-            output.innerHTML += '<thead>' + '<tr>' +
+            // output.innerHTML += '<thead>' + '<tr>' +
 
-            '<th>ID</th>' +
-            '<th>' + db[0][1] + '</th>' +
-
-
-            '<th>' + '("' + db[0][8] + '" - "'+ db[0][10] + '" - "' + db[0][20] +  '" ) * "Коэффицент(' + input_number + ')"-"' + db[0][7]+'"+"'+ db[0][10] + '" + "'+ db[0][20]+'"'+
+            // '<th>ID</th>' +
+            // '<th>' + db[0][1] + '</th>' +
 
 
-            '<th>' + 'Совершенно поездок' + '</th>' +
-            '<th>' + db[0][input_cal] + '</th>' +
-            '<th>' + 'Получено от клиента' + '</th>' +
-            '<th>' + '"' + db[0][input_cal] + '" умноженный на коэффицент(' + input_number + ') и минус "Получено от клиента"' +
-            '<th>' + db[0][20] + '</th>' +
-            '<th>' + db[0][10] + '</th>' +
-            '</tr></thead><tbody id="tbody"></tbody>';
+            // '<th>' + '("' + db[0][8] + '" - "'+ db[0][10] + '" - "' + db[0][20] +  '" ) * "Коэффицент(' + input_number + ')"-"' + db[0][7]+'"+"'+ db[0][10] + '" + "'+ db[0][20]+'"'+
+
+
+            // '<th>' + 'Совершенно поездок' + '</th>' +
+            // '<th>' + db[0][input_cal] + '</th>' +
+            // '<th>' + 'Получено от клиента' + '</th>' +
+            // '<th>' + '"' + db[0][input_cal] + '" умноженный на коэффицент(' + input_number + ') и минус "Получено от клиента"' +
+            // '<th>' + db[0][20] + '</th>' +
+            // '<th>' + db[0][10] + '</th>' +
+            // '</tr></thead><tbody id="tbody"></tbody>';
+
+
             for (i = 0; i < final_arry.length; i++) {
                 // console.log(final_arry[i]);
 
@@ -194,21 +196,34 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 
                 var third_col =  (final_arry[i][3] - final_arry[i][6] - final_arry[i][5]) * input_number - final_arry[i][4] + final_arry[i][6] + final_arry[i][5];
 
-                document.getElementById("tbody").innerHTML += '<tr>' +
+                // document.getElementById("tbody").innerHTML += '<tr>' +
 
 
-                '<td>' + final_arry[i][0] + '</td>' +
-                '<td>' + final_arry[i][2] + '</th>' +
+                // '<td>' + final_arry[i][0] + '</td>' +
+                // '<td>' + final_arry[i][2] + '</th>' +
 
-                '<td>' + third_col.toFixed(2) + '</th>' +
+                // '<td>' + third_col.toFixed(2) + '</th>' +
 
-                '<td>' + final_arry[i][1] + '</td>' +
-                '<td>' + cache_number.toFixed(2) + '</td>' +
-                '<td>' + final_arry[i][4].toFixed(2) + '</td>' +
-                '<td>' + cache_number1.toFixed(2) + '</td>' +
-                '<td>' + final_arry[i][5].toFixed(2) + '</td>' +
-                '<td>' + final_arry[i][6].toFixed(2) + '</td>' +
-                '</tr>';
+                // '<td>' + final_arry[i][1] + '</td>' +
+                // '<td>' + cache_number.toFixed(2) + '</td>' +
+                // '<td>' + final_arry[i][4].toFixed(2) + '</td>' +
+                // '<td>' + cache_number1.toFixed(2) + '</td>' +
+                // '<td>' + final_arry[i][5].toFixed(2) + '</td>' +
+                // '<td>' + final_arry[i][6].toFixed(2) + '</td>' +
+                // '</tr>';
+
+                var ar = [final_arry[i][0],
+                final_arry[i][2],
+                third_col.toFixed(2),
+                final_arry[i][1],
+                cache_number.toFixed(2),
+                final_arry[i][4].toFixed(2),
+                // cache_number1.toFixed(2),
+                final_arry[i][5].toFixed(2),
+                final_arry[i][6].toFixed(2)]
+
+                table.row.add(ar).draw();
+                // $("#tableDiv").show();
 
             }
 
@@ -216,7 +231,11 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
         reader.readAsText(file);
         $("#form").hide();
         $("#br").hide();
+        $("#tableDiv").show();
     });
+
+
+
 } else {
     alert('File API is not supported!');
 };

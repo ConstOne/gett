@@ -1,48 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="utf-8">
-	<title>CSV Gett</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-</head>
-<div>
-	<div class="container">
-		<br>
-		<br>
-		<div class="row justify-content-center" id="form">
-			<form>
-				<div class="form-group">
-					<label for="input_cal">Ввести номер столбца:</label>
-					<input type="text" class="form-control" id="input_cal" placeholder="" value="9">
-				</div>
-				<div class="form-group">
-					<label for="input_number">Ввести коэффицент:</label>
-					<input type="text" class="form-control" id="input_number" placeholder="" value="0.77">
-				</div>
-				<div class="form-group">
-					<label for="input_csv">Вставить файл CSV:</label>
-					<br>
-					<div class="custom-file">
-						<input type="file" id="input_csv" value="123" class="custom-file-input" placeholder="">
-						<span class="custom-file-control"></span>
-					</div>
-				</div>
-				<script src="main.js"></script>
-			</form>
-		</div>
-	</div>
-	<div class="container-fluid">
-		<div class=""></div>
-		<table id="output" class="table table-bordered"></table>
-		<br>
-	</div>
-</div>
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-</body>
+     <!-- Required meta tags -->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css">
+
+    </head>
+    <body>
+            <div class="container" id="form">
+            <br>
+            <br>
+            <div class="row justify-content-center">
+                <form>
+                    <div class="form-group" id="input_cal1">
+                        <label for="input_cal">Ввести номер столбца:</label>
+                        <input type="text" class="form-control" id="input_cal" placeholder="" value="9">
+                    </div>
+                    <div class="form-group">
+                        <label for="input_number">Ввести коэффицент:</label>
+                        <input type="text" class="form-control" id="input_number" placeholder="" value="0.77">
+                    </div>
+                    <div class="form-group">
+                        <label for="input_csv">Вставить файл CSV:</label>
+                        <br>
+                        <div class="custom-file">
+                            <input type="file" id="input_csv" value="123" class="custom-file-input" placeholder="">
+                            <span class="custom-file-control"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="container" id="tableDiv"><br>
+            <table id="example" class="ui celled table" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя водителя</th>
+                        <th>("Тариф для водителя всего" - "Чаевые для водителя" - "Стоимость парковки / платной дороги" ) * "Коэффицент(0.77)"-"Получено от клиента"+"Чаевые для водителя" + "Стоимость парковки / платной дороги"</th>
+                        <th>Совершенно поездок</th>
+                        <th>Тариф для водителя всего</th>
+                        <th>Получено от клиента</th>
+                        <!-- <th>"Тариф для водителя всего" умноженный на коэффицент(0.77) и минус "Получено от клиента"</th> -->
+                        <th>Стоимость парковки / платной дороги</th>
+                        <th>Чаевые для водителя</th>
+                    </tr>
+                </thead>
+    </table>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script><script src="main.js"></script>
+
+
+    <script type="text/javascript">
+        $("#input_cal1").hide();
+        var table = $('#example').DataTable();
+        if ( ! table.data().count() ) {
+        $("#tableDiv").hide();
+        }
+        // $("#tableDiv").hide();
+
+    </script>
+<!-- 
+    <script type="text/javascript">
+       // var table = $('#example').DataTable();
+       var min =1, max = 100;
+       var names = ['Oleg', 'Ura', 'Max', 'Nick', 'Ivan', 'Semen', 'Petr', 'Gleb','Kostya']
+       var ar = [ 1, 2, 3, 4 , 5 , 6 , 7 , 8 , 9 ];
+       for (var i = 0; i < Math.random()* (min - max) + max; i++) {
+
+        for (var a = 0; a < ar.length; a++) {
+            if(a===0){
+                min = 10000;
+                max = 99999;
+            }else{
+                min = 1;
+                max = 100;
+            }
+            if(a===1){
+                q = Math.random()*(1 - names.length)+names.length;
+                console.log(q.toFixed(0));
+                ar[a]= names[q.toFixed(0)-1];
+                a++;
+                // break;
+            }
+            n=Math.random() * (min - max) + max;
+            ar[a]= n.toFixed(0);
+        }
+
+
+        table.row.add(ar).draw();
+        $("#tableDiv").show();
+    }</script> -->
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
 </html>
+
